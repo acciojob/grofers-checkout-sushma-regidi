@@ -1,16 +1,52 @@
-<table>
-  <tr class="item">
-    <td>Apples</td>
-    <td class="prices">50</td>
-  </tr>
-  <tr class="item">
-    <td>Bananas</td>
-    <td class="prices">30</td>
-  </tr>
-  <tr class="item">
-    <td>Milk</td>
-    <td class="prices">60</td>
-  </tr>
-</table>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grofers Checkout</title>
+</head>
+<body>
+  <table id="grocery-table" border="1">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+    <tr class="item">
+      <td>Apples</td>
+      <td class="prices">50</td>
+    </tr>
+    <tr class="item">
+      <td>Bananas</td>
+      <td class="prices">30</td>
+    </tr>
+    <tr class="item">
+      <td>Milk</td>
+      <td class="prices">40</td>
+    </tr>
+  </table>
+
+  <script>
+    // Select all elements with class 'prices'
+    const priceElements = document.querySelectorAll('.prices');
+    let total = 0;
+
+    // Loop through and sum up prices
+    priceElements.forEach(price => {
+      total += parseFloat(price.textContent);
+    });
+
+    // Create a new row for total
+    const totalRow = document.createElement('tr');
+    const totalCell = document.createElement('td');
+    totalCell.colSpan = 2; // make cell span across both columns
+    totalCell.textContent = "Total Price: " + total;
+
+    // Append the cell to the row
+    totalRow.appendChild(totalCell);
+
+    // Append the row to the table
+    document.getElementById('grocery-table').appendChild(totalRow);
+  </script>
+</body>
+</html>
+
 
 
